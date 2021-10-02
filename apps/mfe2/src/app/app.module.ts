@@ -1,4 +1,3 @@
-import { RemoteEntryModule } from './remote-entry/entry.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,7 +10,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], {initialNavigation: 'enabledBlocking'})
+    RouterModule.forRoot([{ path: '', loadChildren: () => import('./remote-entry/entry.module').then(m => m.RemoteEntryModule)}], {initialNavigation: 'enabledBlocking'})
   ],
   providers: [],
   bootstrap: [AppComponent]
