@@ -1,4 +1,4 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RoutingConfiguration} from "./routing-configuration";
 import {RouterModule} from "@angular/router";
@@ -14,13 +14,10 @@ export const routeConfiguration = new RoutingConfiguration();
   ],
   declarations: [
     FrameComponent
+  ],
+  providers: [
+    { provide: RoutingConfiguration, useValue: routeConfiguration}
   ]
 })
 export class NavigationModule {
-  static forRoot(): ModuleWithProviders<NavigationModule>{
-    return {
-      ngModule: NavigationModule,
-      providers: [ { provide: RoutingConfiguration, useValue: routeConfiguration}]
-    }
-  }
 }

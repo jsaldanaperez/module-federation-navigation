@@ -8,10 +8,13 @@ import {RoutingConfiguration} from "@module-federation-navigation/navigation";
 })
 export class FrameComponent implements OnInit {
   invoices = false;
+  projects = false;
+
   constructor(private routeConfiguration: RoutingConfiguration) { }
 
   ngOnInit(): void {
     this.invoices = this.containsRoute('invoices');
+    this.projects = this.containsRoute('projects');
   }
 
   private containsRoute(path: string): boolean{

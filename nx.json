@@ -27,12 +27,25 @@
     ]
   },
   "projects": {
+    "mfe1": {
+      "tags": []
+    },
+    "mfe1-e2e": {
+      "tags": [],
+      "implicitDependencies": ["mfe1"]
+    },
+    "navigation": {
+      "tags": []
+    },
     "shell": {
       "tags": []
     },
     "shell-e2e": {
       "tags": [],
       "implicitDependencies": ["shell"]
+    },
+    "test": {
+      "tags": []
     }
   }
 }
