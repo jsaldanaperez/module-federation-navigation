@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -32,7 +37,18 @@
     },
     "mfe1-e2e": {
       "tags": [],
-      "implicitDependencies": ["mfe1"]
+      "implicitDependencies": [
+        "mfe1"
+      ]
+    },
+    "mfe2": {
+      "tags": []
+    },
+    "mfe2-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "mfe2"
+      ]
     },
     "navigation": {
       "tags": []
@@ -42,7 +58,9 @@
     },
     "shell-e2e": {
       "tags": [],
-      "implicitDependencies": ["shell"]
+      "implicitDependencies": [
+        "shell"
+      ]
     },
     "test": {
       "tags": []
