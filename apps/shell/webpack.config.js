@@ -26,6 +26,7 @@ module.exports = {
       remotes: {
         mfe1: 'mfe1@http://localhost:4201/remoteEntry.js',
     		mfe2: 'mfe2@http://localhost:4202/remoteEntry.js',
+        topbar1: 'topbar1@http://localhost:4203/remoteEntry.js',
       },
       shared: {
         '@angular/core': { singleton: true, strictVersion: true },

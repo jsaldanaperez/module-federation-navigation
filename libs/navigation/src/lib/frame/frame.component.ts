@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RoutingConfiguration} from "@module-federation-navigation/navigation";
+import { RoutingConfiguration } from '../routing-configuration';
 
 @Component({
   selector: 'module-federation-navigation-frame',
@@ -9,10 +9,12 @@ import {RoutingConfiguration} from "@module-federation-navigation/navigation";
 export class FrameComponent implements OnInit {
   invoices = false;
   projects = false;
+  topBar = false;
 
   constructor(private routeConfiguration: RoutingConfiguration) { }
 
   ngOnInit(): void {
+    this.topBar = this.routeConfiguration.topBar;
     this.invoices = this.containsRoute('invoices');
     this.projects = this.containsRoute('projects');
   }

@@ -414,6 +414,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
+              "nx serve top-bar1",
               "nx serve mfe2",
               "nx serve mfe1",
               "nx serve shell"
@@ -452,6 +453,153 @@
         }
       }
     },
+    "shell2": {
+      "projectType": "application",
+      "root": "apps/shell2",
+      "sourceRoot": "apps/shell2/src",
+      "prefix": "module-federation-navigation",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/shell2",
+            "index": "apps/shell2/src/index.html",
+            "main": "apps/shell2/src/main.ts",
+            "polyfills": "apps/shell2/src/polyfills.ts",
+            "tsConfig": "apps/shell2/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/shell2/src/favicon.ico",
+              "apps/shell2/src/assets"
+            ],
+            "styles": [
+              "apps/shell2/src/styles.scss"
+            ],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/shell2/webpack.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/shell2/src/environments/environment.ts",
+                  "with": "apps/shell2/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/shell2/webpack.prod.config.js"
+              }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@nrwl/angular:webpack-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "shell2:build:production"
+            },
+            "development": {
+              "browserTarget": "shell2:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 5001
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shell2:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/shell2/src/**/*.ts",
+              "apps/shell2/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/shell2"
+          ],
+          "options": {
+            "jestConfig": "apps/shell2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "serve-mfe": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx serve top-bar2",
+              "nx serve shell2"
+            ]
+          }
+        }
+      }
+    },
+    "shell2-e2e": {
+      "root": "apps/shell2-e2e",
+      "sourceRoot": "apps/shell2-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/shell2-e2e/cypress.json",
+            "devServerTarget": "shell2:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shell2:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/shell2-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
     "test": {
       "projectType": "library",
       "root": "libs/test",
@@ -474,6 +622,282 @@
             "lintFilePatterns": [
               "libs/test/src/**/*.ts",
               "libs/test/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "top-bar1": {
+      "projectType": "application",
+      "root": "apps/top-bar1",
+      "sourceRoot": "apps/top-bar1/src",
+      "prefix": "module-federation-navigation",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/top-bar1",
+            "index": "apps/top-bar1/src/index.html",
+            "main": "apps/top-bar1/src/main.ts",
+            "polyfills": "apps/top-bar1/src/polyfills.ts",
+            "tsConfig": "apps/top-bar1/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/top-bar1/src/favicon.ico",
+              "apps/top-bar1/src/assets"
+            ],
+            "styles": [
+              "apps/top-bar1/src/styles.scss"
+            ],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/top-bar1/webpack.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/top-bar1/src/environments/environment.ts",
+                  "with": "apps/top-bar1/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/top-bar1/webpack.prod.config.js"
+              }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@nrwl/angular:webpack-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "top-bar1:build:production"
+            },
+            "development": {
+              "browserTarget": "top-bar1:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4203
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "top-bar1:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/top-bar1/src/**/*.ts",
+              "apps/top-bar1/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/top-bar1"
+          ],
+          "options": {
+            "jestConfig": "apps/top-bar1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "top-bar1-e2e": {
+      "root": "apps/top-bar1-e2e",
+      "sourceRoot": "apps/top-bar1-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/top-bar1-e2e/cypress.json",
+            "devServerTarget": "top-bar1:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "top-bar1:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/top-bar1-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "top-bar2": {
+      "projectType": "application",
+      "root": "apps/top-bar2",
+      "sourceRoot": "apps/top-bar2/src",
+      "prefix": "module-federation-navigation",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/top-bar2",
+            "index": "apps/top-bar2/src/index.html",
+            "main": "apps/top-bar2/src/main.ts",
+            "polyfills": "apps/top-bar2/src/polyfills.ts",
+            "tsConfig": "apps/top-bar2/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/top-bar2/src/favicon.ico",
+              "apps/top-bar2/src/assets"
+            ],
+            "styles": [
+              "apps/top-bar2/src/styles.scss"
+            ],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/top-bar2/webpack.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/top-bar2/src/environments/environment.ts",
+                  "with": "apps/top-bar2/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/top-bar2/webpack.prod.config.js"
+              }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@nrwl/angular:webpack-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "top-bar2:build:production"
+            },
+            "development": {
+              "browserTarget": "top-bar2:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4204
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "top-bar2:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/top-bar2/src/**/*.ts",
+              "apps/top-bar2/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/top-bar2"
+          ],
+          "options": {
+            "jestConfig": "apps/top-bar2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "top-bar2-e2e": {
+      "root": "apps/top-bar2-e2e",
+      "sourceRoot": "apps/top-bar2-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/top-bar2-e2e/cypress.json",
+            "devServerTarget": "top-bar2:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "top-bar2:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/top-bar2-e2e/**/*.{js,ts}"
             ]
           }
         }

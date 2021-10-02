@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'module-federation-navigation-mfe2-entry',
-  template: `<div class="remote-entry"><h2>mfe2's Remote Entry Component</h2></div>`,
+  template: `<div class="remote-entry"><h2>PROJECTS</h2></div>`,
   styles: [`
   .remote-entry {
     background-color: #143055;

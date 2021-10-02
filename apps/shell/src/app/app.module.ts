@@ -11,6 +11,7 @@ function load(promise: Promise<NgModule>): LoadChildren{
 
 routingConfiguration.configure(
   {
+    topBar: load(import('topbar1/Module').then(m => m.RemoteEntryModule)),
     invoices: load(import('mfe1/Module').then((m) => m.RemoteEntryModule)),
     projects: load(import('mfe2/Module').then(m => m.RemoteEntryModule))
   }
@@ -26,7 +27,7 @@ routingConfiguration.configure(
         {
           path: '',
           loadChildren: () => import('@module-federation-navigation/navigation').then(m => m.NavigationModule),
-        },
+        }
       ],
       { initialNavigation: 'enabledBlocking' }
     ),

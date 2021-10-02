@@ -5,10 +5,11 @@ import {RouterModule} from "@angular/router";
 import { FrameComponent } from './frame/frame.component';
 export const routingConfiguration = new RoutingConfiguration();
 
+
 @NgModule({
   imports:[
     CommonModule,
-    RouterModule.forChild([
+    RouterModule.forChild([ 
       { path: '', component: FrameComponent, children: routingConfiguration.routes}
     ])
   ],

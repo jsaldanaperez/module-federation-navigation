@@ -62,8 +62,35 @@
         "shell"
       ]
     },
+    "shell2": {
+      "tags": []
+    },
+    "shell2-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "shell2"
+      ]
+    },
     "test": {
       "tags": []
+    },
+    "top-bar1": {
+      "tags": []
+    },
+    "top-bar1-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "top-bar1"
+      ]
+    },
+    "top-bar2": {
+      "tags": []
+    },
+    "top-bar2-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "top-bar2"
+      ]
     }
   }
 }

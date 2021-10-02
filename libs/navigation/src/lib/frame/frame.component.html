@@ -1,5 +1,9 @@
-FRAME <a *ngIf="invoices" routerLink="invoices">Invoices</a> &nbsp;
+<router-outlet name="top"></router-outlet>
+
+<hr />
+<a *ngIf="invoices" routerLink="invoices">Invoices</a> &nbsp;
 <a *ngIf="projects" routerLink="projects">Projects</a>
+
 <div>
   <router-outlet></router-outlet>
 </div>

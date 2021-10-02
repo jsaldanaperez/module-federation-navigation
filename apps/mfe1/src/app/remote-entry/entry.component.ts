@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'module-federation-navigation-mfe1-entry',
   template: `<div class="remote-entry">
-    <h2>mfe1's Remote Entry Component</h2>
+    <h2>INVOICES</h2>
   </div>`,
   styles: [
     `
