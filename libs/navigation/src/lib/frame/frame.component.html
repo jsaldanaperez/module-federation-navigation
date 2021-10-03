@@ -1,9 +1,13 @@
-<router-outlet name="top"></router-outlet>
+<router-outlet name="topbar"></router-outlet>
 
 <hr />
-<a *ngIf="invoices" routerLink="invoices">Invoices</a> &nbsp;
-<a *ngIf="projects" routerLink="projects">Projects</a>
-
+Links
+<ul>
+  <li *ngFor="let navItem of navItems">
+    <a [routerLink]="[navItem.route]">{{ navItem.name }}</a>
+  </li>
+</ul>
+<hr />
 <div>
   <router-outlet></router-outlet>
 </div>

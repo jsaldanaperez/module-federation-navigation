@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { LoadChildren, RouterModule } from '@angular/router';
-import { routingConfiguration } from '@module-federation-navigation/navigation';
+import { RouterModule } from '@angular/router';
+import {navigationConfig} from "@module-federation-navigation/navigation";
 
-function load(promise: Promise<NgModule>): LoadChildren{
-  return () => promise;
-}
-
-routingConfiguration.configure({
-  topBar: load(import('topbar2/Module').then(m => m.RemoteEntryModule)),
-  invoices: load(import('mfe1/Module').then(m => m.RemoteEntryModule))
+navigationConfig.initialize({
+  topBar: import('topbar2/Module').then(m => m.RemoteEntryModule),
+  navigationItems: [
+    { name: 'Invoices', path: 'invoices', module: import('mfe1/Module').then((m) => m.RemoteEntryModule)},
+  ]
 })
+
 
 @NgModule({
   declarations: [

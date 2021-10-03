@@ -1,2 +1,2 @@
 export * from './lib/navigation.module';
-export * from './lib/routing-configuration';
+export * from './lib/navigation-config';
